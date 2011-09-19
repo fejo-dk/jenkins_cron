@@ -26,7 +26,6 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency("jenkins", ["~> 0.6.5"])
 
   s.add_development_dependency("rake", ["~> 0.9.2"])
-  s.add_development_dependency("cucumber", ["~> 1.0.0"])
   s.add_development_dependency("rspec", ["~> 2.6.0"])
   s.add_development_dependency("awesome_print")
 end
