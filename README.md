@@ -28,7 +28,7 @@ The test suite is run with:
 
     rake
 
-This runs the cucumber features and the specs.
+This runs the specs, both unit and integration.
 
 ## Contributors
 
