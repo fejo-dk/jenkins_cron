@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.name        = "jenkins_cron"
   s.version     = JenkinsCron::VERSION
   s.authors     = ["Dirk Breuer"]
-  s.email       = ["dirk.breuer@gmail.com"]
+  s.email       = ["dirk@galaxycats.com"]
   s.homepage    = "http://github.com/railsbros-dirk/jenkins_cron"
   s.summary     = %q{Jenkins-Cron let you define jobs that would be run with cron normally to be performed via Jenkins.}
   s.description = %q{In larger projects you may end up with a hole bunch of tasks that needs to be executed either on a
