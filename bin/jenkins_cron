@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
 require "jenkins_cron"
+require 'jenkins_cron/command_line'
+

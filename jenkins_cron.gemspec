@@ -24,6 +24,8 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_runtime_dependency("jenkins", ["~> 0.6.5"])
+  s.add_runtime_dependency("whenever", ["~> 0.7.0"])
+  s.add_runtime_dependency("active_support")
 
   s.add_development_dependency("rake", ["~> 0.9.2"])
   s.add_development_dependency("rspec", ["~> 2.6.0"])
