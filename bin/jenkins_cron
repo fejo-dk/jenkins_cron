@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+$KCODE = "UTF8"
+
 require 'optparse'
 require "jenkins_cron"
 require 'jenkins_cron/command_line'

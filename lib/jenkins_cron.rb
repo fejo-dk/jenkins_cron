@@ -1,6 +1,7 @@
 require 'active_support/all'
 
 require 'jenkins'
+require 'whenever'
 
 require "jenkins_cron/version"
 
