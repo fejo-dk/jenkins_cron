@@ -1,5 +1,18 @@
 #!/usr/bin/env ruby
 
+require 'optparse'
 require "jenkins_cron"
 require 'jenkins_cron/command_line'
+
+options = {}
+
+OptionParser.new do |opts|
+  opts.banner = "Usage: jenkins_cron [options]"
+  opts.on('-s', '--set [variables]', 'Example: --set \'environment=staging&path=/my/sweet/path\'') do |set|
+    options[:set] = set if set
+  end
+  opts.on('-v', '--version') { puts "JenkinsCron v#{JenkinsCron::VERSION}"; exit(0) }
+end.parse!
+
+JenkinsCron::CommandLine.execute(options)
 

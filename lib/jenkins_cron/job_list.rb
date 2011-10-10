@@ -24,6 +24,7 @@ module JenkinsCron
     end
 
     def generate_jenkins_output
+      puts "--> Using Jenkins at: #{@jenkins_host}:#{@jenkins_port}"
       Jenkins::Api.setup_base_url(:host => @jenkins_host, :port => @jenkins_port)
 
       @jobs.each do |group, jobs_by_time_scope|
@@ -38,8 +39,9 @@ module JenkinsCron
                 else
                   c.triggers = [{:class => :timer, :spec => cron[:time_spec]}]
                 end
-                c.publishers = [{:job_triggers => [jobs[idx + 1].name]}] if group && jobs[idx + 1]
-                c.steps    = [[:build_shell_step, (environment_variables + cron[:task]).strip]]
+                c.publishers = [{:job_triggers => { :projects => [jobs[idx + 1].name], :on => "FAILURE" }}] if group && jobs[idx + 1]
+                c.steps      = [[:build_shell_step, (environment_variables + cron[:task]).strip]]
+                c.log_rotate = { :days_to_keep => 14 }
               end
 
               if Jenkins::Api.job(job.name)

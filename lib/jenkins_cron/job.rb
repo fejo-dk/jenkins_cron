@@ -11,7 +11,7 @@ module JenkinsCron
     end
 
     def name
-      @name.gsub(/\s+/, '-')
+      @name.parameterize
     end
   end
 end
