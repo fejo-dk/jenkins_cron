@@ -4,7 +4,7 @@ Capistrano::Configuration.instance(:must_exist).load do
   _cset(:jenkins_server)       { "jenkins_host=localhost&jenkins_port=8080" }
   _cset(:jenkins_flags)        { "--set 'environment=#{fetch :jenkins_environment}&#{fetch :jenkins_server}'" }
 
-  after "deploy:symlink", "jenkins:update"
+  after "deploy:create_symlink", "jenkins:update"
 
   namespace :jenkins do
 
