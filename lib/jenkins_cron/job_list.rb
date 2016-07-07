@@ -34,6 +34,7 @@ module JenkinsCron
           jobs.each_with_index do |job, idx|
             JenkinsCron::Output::PeriodicalTrigger.output(time, job) do |cron|
               config = Jenkins::JobConfigBuilder.new(:none) do |c|
+                c.assigned_node = job.label
                 if group
                   c.triggers = [{:class => :timer, :spec => cron[:time_spec]}] if idx == 0
                 else
