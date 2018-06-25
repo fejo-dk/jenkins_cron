@@ -42,7 +42,7 @@ module JenkinsCron
                 end
                 c.publishers = []
                 c.publishers << {:job_triggers => { :projects => [jobs[idx + 1].name], :on => "FAILURE" }} if group && jobs[idx + 1]
-                c.publishers << {:mailer => ["db@fejo.dk", "bv@fejo.dk", "sc@fejo.dk", "bp@fejo.dk"]}
+                c.publishers << {:mailer => ["developers@fejo.dk"]}
                 c.steps      = [[:build_shell_step, (environment_variables + cron[:task]).strip]]
                 c.log_rotate = { :days_to_keep => 14 }
               end
